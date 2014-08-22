@@ -1,15 +1,15 @@
-#ifndef STANDARDEXAMPLES_H
-#define STANDARDEXAMPLES_H
+#pragma once
 
-#include "pureweb.h"
+#include "iexample.h"
 
-class StandardExamples
+class StandardExamples : public IExample
 {
 public:
     StandardExamples();
+	virtual ~StandardExamples();
+
+	void Run();
 
 private:
 
 };
-
-#endif // STANDARDEXAMPLES_H

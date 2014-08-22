@@ -1,10 +1,13 @@
-#ifndef TYPELESSEXAMPLES_H
-#define TYPELESSEXAMPLES_H
+#pragma once
 
-class TypelessExamples
+#include "iexample.h"
+
+class TypelessExamples : public IExample
 {
 public:
     TypelessExamples();
+	virtual ~TypelessExamples();
+
+	void Run();
 };
 
-#endif // TYPELESSEXAMPLES_H

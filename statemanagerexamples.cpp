@@ -10,8 +10,18 @@ static Log::Logger logger = Log::GetLogger<StateManagerExamples>();
 
 StateManagerExamples::StateManagerExamples()
 {
+	logger.Info.Format("Begin");
     m_stateManager = new CSI::PureWeb::Server::StateManager("StateManager");
     m_stateManager->XmlStateManager().AddValueChangedHandler("/StringValue", Bind(this, &StateManagerExamples::OnValueChanged));
+}
+
+StateManagerExamples::~StateManagerExamples()
+{
+	logger.Info.Format("End");
+}
+
+void StateManagerExamples::Run()
+{
 }
 
 void StateManagerExamples::UpdateStringValue()
@@ -44,14 +54,14 @@ char* StateManagerExamples::GetEventArgString(CSI::Nullable<CSI::String> const& 
         str = new char[size+1];
 
         for (unsigned int i=0; i<size; i++)
-            str[i]=value[i];
+            str[i]=(char)value[i];
 
         str[size]=0;
 
         const char* src = value.ToAscii().begin();
 
         for (unsigned int i2=0; i2<size; i2++)
-            str[i2]=value[i2];
+            str[i2]=(char)value[i2];
     }
 
     return str;

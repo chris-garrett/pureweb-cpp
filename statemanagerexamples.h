@@ -1,13 +1,14 @@
-#ifndef STATEMANAGEREXAMPLES_H
-#define STATEMANAGEREXAMPLES_H
+#pragma once
 
-#include "pureweb.h"
+#include "iexample.h"
 
-class StateManagerExamples
+class StateManagerExamples : public IExample
 {
 public:
     StateManagerExamples();
+	virtual ~StateManagerExamples();
 
+	void Run();
     void UpdateStringValue();
 
 private:
@@ -18,4 +19,3 @@ private:
     void OnValueChanged(CSI::ValueChangedEventArgs const& args);
 };
 
-#endif // STATEMANAGEREXAMPLES_H
